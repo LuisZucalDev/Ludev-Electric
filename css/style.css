@@ -191,23 +191,7 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* Botón WhatsApp flotante */
-.whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 100;
-    transition: transform 0.3s ease;
-}
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-
-.whatsapp-float img {
-    width: 60px;
-    height: 60px;
-}
 
 /* Footer */
 footer {
@@ -231,4 +215,40 @@ footer {
     margin: 0 auto;    /* Centra horizontalmente */
     line-height: 1.8;
     font-size: 1em;
+}
+
+.whatsapp-dropdown {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.whatsapp-btn {
+    cursor: pointer;
+}
+
+/* Oculta el menú por defecto */
+.whatsapp-menu {
+    display: none;
+    position: absolute;
+    bottom: 70px; /* altura sobre el ícono */
+    right: 0;
+    background: #25d366;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Estilo de los enlaces dentro del menú */
+.whatsapp-menu a {
+    display: block;
+    padding: 5px 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.whatsapp-menu a:hover {
+    background-color: #128c7e;
 }

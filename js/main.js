@@ -29,3 +29,24 @@ document.querySelectorAll('.project-carousel').forEach(carouselSection => {
         }
     });
 });
+
+// Seleccionamos el botón y el menú
+const whatsappBtn = document.querySelector('.whatsapp-btn');
+const whatsappMenu = document.querySelector('.whatsapp-menu');
+
+// Alternar el menú al hacer clic en el ícono
+whatsappBtn.addEventListener('click', () => {
+    if (whatsappMenu.style.display === 'block') {
+        whatsappMenu.style.display = 'none';
+    } else {
+        whatsappMenu.style.display = 'block';
+    }
+});
+
+// Cerrar menú si se hace clic afuera
+window.addEventListener('click', function(e) {
+    if (!e.target.closest('.whatsapp-dropdown')) {
+        whatsappMenu.style.display = 'none';
+    }
+});
+
