@@ -5,29 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ludev Electric - Servicios Eléctricos Profesionales</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
 
 <header>
-    <img src="img/logo.png" alt="Logo Ludev Electric" class="logo">
-    <h1>Ludev Electric</h1>
-    <p>Soluciones eléctricas confiables y rápidas</p>
+    <div class="header-overlay">
+        <img src="img/logo.png" alt="Logo Ludev Electric" class="logo">
+        <h1>Ludev Electric</h1>
+        <p>Soluciones eléctricas confiables y rápidas</p>
+    </div>
 </header>
 
 <nav>
-    <a href="#services">Servicios</a>
-    <a href="#about">Quiénes Somos</a>
-    <a href="#portfolio">Proyectos</a>
-    <a href="#contact">Contacto</a>
+    <div class="menu-mobile">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="#services">Servicios</a>
+            <a href="#about">Quiénes Somos</a>
+            <a href="#portfolio">Proyectos</a>
+            <a href="#contact">Contacto</a>
+        </div>
+    </div>
 </nav>
 
 <main>
-
 <section id="services">
     <h2>Nuestros Servicios</h2>
     <div class="services">
+        <!-- Servicio repetido -->
         <div class="service">
             <div class="service-img-container">
                 <img src="img/service1.png" alt="Instalación Residencial">
@@ -35,7 +46,6 @@
             <h3>Instalación Residencial</h3>
             <p>Instalaciones eléctricas completas para tu hogar, seguras y eficientes.</p>
         </div>
-
         <div class="service">
             <div class="service-img-container">
                 <img src="img/service2.jpeg" alt="Mantenimiento Preventivo">
@@ -43,7 +53,6 @@
             <h3>Mantenimiento Preventivo</h3>
             <p>Mantenemos tus sistemas eléctricos funcionando correctamente y sin fallas.</p>
         </div>
-
         <div class="service">
             <div class="service-img-container">
                 <img src="img/service3.jpg" alt="Reparaciones de Cortocircuitos">
@@ -51,7 +60,6 @@
             <h3>Reparaciones de Cortocircuitos</h3>
             <p>Atención rápida y profesional ante cualquier emergencia eléctrica.</p>
         </div>
-
         <div class="service">
             <div class="service-img-container">
                 <img src="img/service4.webp" alt="Iluminación LED">
@@ -59,7 +67,6 @@
             <h3>Iluminación LED</h3>
             <p>Instalación de iluminación LED moderna, ahorrativa y ecológica.</p>
         </div>
-
         <div class="service">
             <div class="service-img-container">
                 <img src="img/service5.jpg" alt="Paneles Solares Domiciliarios">
@@ -67,7 +74,6 @@
             <h3>Paneles Solares Domiciliarios</h3>
             <p>Instalación de sistemas solares para viviendas, reduciendo costos de energía y apoyando el medio ambiente.</p>
         </div>
-
         <div class="service">
             <div class="service-img-container">
                 <img src="img/service6.jpg" alt="Tableros Eléctricos">
@@ -75,35 +81,18 @@
             <h3>Instalaciones y Armado de Tableros Eléctricos</h3>
             <p>Diseño, ensamblaje e instalación de tableros eléctricos seguros y eficientes.</p>
         </div>
-
-        <div class="service">
-            <div class="service-img-container">
-                <img src="img/service7.webp" alt="Servicio TE1">
-            </div>
-            <h3>Servicio de TE1 y Documentación</h3>
-            <p>Servicio especializado TE1 con toda la documentación técnica requerida para cumplimiento normativo.</p>
-        </div>
-
-        <div class="service">
-            <div class="service-img-container">
-                <img src="img/service8.jpeg" alt="Diseño de Planos Eléctricos">
-            </div>
-            <h3>Diseño de Planos Eléctricos</h3>
-            <p>Elaboración de planos eléctricos detallados y profesionales para todo tipo de instalaciones.</p>
-        </div>
     </div>
 </section>
 
 <section id="about">
     <h2>Quiénes Somos</h2>
     <p class="about-text">
-        Ludev Electric está formado por Luis Zuñiga y Deivi Rodríguez. Nuestra misión es ofrecer soluciones eléctricas profesionales, seguras y confiables, adaptadas a las necesidades de cada cliente. Contamos con más de 10 años de experiencia en el rubro de la electricidad y nos respaldan los mejores profesionales para la ejecución de todos nuestros servicios. Garantizamos calidad y eficiencia en cada proyecto que realizamos.
+        Ludev Electric está formado por Luis Zuñiga y Deivi Rodríguez. Nuestra misión es ofrecer soluciones eléctricas profesionales, seguras y confiables, adaptadas a las necesidades de cada cliente. Contamos con más de 10 años de experiencia en el rubro de la electricidad y nos respaldan los mejores profesionales para la ejecución de todos nuestros servicios.
     </p>
 </section>
 
 <section id="portfolio">
     <h2>Proyectos Realizados</h2>
-
     <div class="project-carousel">
         <h3>Instalación Comercial</h3>
         <div class="carousel-container">
@@ -117,43 +106,15 @@
         </div>
         <p>Proyecto de iluminación y cableado para oficina corporativa.</p>
     </div>
-
-    <div class="project-carousel">
-        <h3>Mantenimiento Industrial</h3>
-        <div class="carousel-container">
-            <button class="prev">&#10094;</button>
-            <div class="carousel">
-                <div class="carousel-img-container"><img src="img/industrial1.jpeg" alt="Proyecto Industrial 1"></div>
-                <div class="carousel-img-container"><img src="img/industrial2.jpeg" alt="Proyecto Industrial 2"></div>
-                <div class="carousel-img-container"><img src="img/industrial3.jpeg" alt="Proyecto Industrial 3"></div>
-            </div>
-            <button class="next">&#10095;</button>
-        </div>
-        <p>Mantenimiento preventivo completo en planta industrial.</p>
-    </div>
-
-    <div class="project-carousel">
-        <h3>Residencial</h3>
-        <div class="carousel-container">
-            <button class="prev">&#10094;</button>
-            <div class="carousel">
-                <div class="carousel-img-container"><img src="img/residencial1.jpeg" alt="Proyecto Residencial 1"></div>
-                <div class="carousel-img-container"><img src="img/residencial2.jpeg" alt="Proyecto Residencial 2"></div>
-                <div class="carousel-img-container"><img src="img/residencial3.jpeg" alt="Proyecto Residencial 3"></div>
-                <div class="carousel-img-container"><img src="img/residencial4.jpeg" alt="Proyecto Residencial 4"></div>
-            </div>
-            <button class="next">&#10095;</button>
-        </div>
-        <p>Instalación eléctrica moderna y segura en vivienda particular.</p>
-    </div>
 </section>
 
 <section id="contact">
     <h2>Contacto</h2>
-    <form id="contactForm">
-        <input type="text" id="nombre" placeholder="Nombre" required>
-        <input type="email" id="email" placeholder="Correo Electrónico" required>
-        <textarea id="mensaje" rows="5" placeholder="Mensaje" required></textarea>
+    <form id="contactForm" action="https://formspree.io/f/manpzwgy" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Correo Electrónico" required>
+        <input type="tel" name="telefono" placeholder="Teléfono" required>
+        <textarea name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
         <button type="submit">Enviar Mensaje</button>
     </form>
 </section>
@@ -165,7 +126,6 @@
         <a href="https://wa.me/56994239929?text=Hola%20Ludev%20Electric,%20quiero%20información" target="_blank">Contacto2</a>
     </div>
 </div>
-
 </main>
 
 <footer>
