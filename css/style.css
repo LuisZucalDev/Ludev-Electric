@@ -117,13 +117,14 @@ footer { background:#074a9c; color:white; text-align:center; padding:25px 0; fon
     justify-content: flex-end; /* mueve todo a la derecha */
     align-items: center; 
     padding: 10px 20px; 
-    background: rgba(10,116,218,0.9);
+    border-radius:30px;
+    background: rgba(10,116,218,0.6);
 }
 .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
 .hamburger span { width:25px; height:3px; background:white; border-radius:3px; transition:0.3s; }
 
 .nav-links { display:flex; gap:15px; }
-.nav-links a { color:white; text-decoration:none; padding:10px 15px; font-weight:bold; border-radius:6px; transition:0.3s; }
+.nav-links a { color:white; text-decoration:none; padding:10px 15px; font-weight:bold; border-radius:30px; transition:0.3s; }
 .nav-links a:hover { background: rgba(255,255,255,0.2); }
 
 /* MÓVIL */
