@@ -1,77 +1,51 @@
-// FORMULARIO CONTACTO
-document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const nombre = document.getElementById('nombre').value;
-    alert(`Gracias ${nombre}, tu mensaje ha sido enviado!`);
-    this.reset();
+// ================= MENÚ MÓVIL =================
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.querySelector('nav ul');
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('show');
 });
 
-// CARRUSELES
-document.querySelectorAll('.project-carousel').forEach(section=>{
-    const carousel = section.querySelector('.carousel');
-    const prev = section.querySelector('.prev');
-    const next = section.querySelector('.next');
-    let offset=0;
-    const imgWidth = carousel.querySelector('img').offsetWidth + 15;
-
-    const slideNext=()=>{
-        if(offset <= -(imgWidth*(carousel.children.length-1))) offset=0;
-        else offset-=imgWidth;
-        carousel.style.transform=`translateX(${offset}px)`;
+// ================= SCROLL ANIMATION =================
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('visible');
     }
-    next.addEventListener('click',slideNext);
-    prev.addEventListener('click',()=>{
-        if(offset>=0) offset=-(imgWidth*(carousel.children.length-1));
-        else offset+=imgWidth;
-        carousel.style.transform=`translateX(${offset}px)`;
-    });
-    setInterval(slideNext,4000);
+  });
+}, { threshold: 0.1 });
+sections.forEach(sec => observer.observe(sec));
+
+// ================= CARRUSEL =================
+document.querySelectorAll('.carousel-card').forEach(card => {
+  const carousel = card.querySelector('.carousel');
+  const prev = card.querySelector('.prev');
+  const next = card.querySelector('.next');
+  let offset = 0;
+
+  function imgWidth() { return carousel.querySelector('.carousel-img').offsetWidth; }
+
+  next.addEventListener('click', () => {
+    const width = imgWidth();
+    if(offset <= -(width * (carousel.children.length -1))) offset = 0;
+    else offset -= width;
+    carousel.style.transform = `translateX(${offset}px)`;
+  });
+
+  prev.addEventListener('click', () => {
+    const width = imgWidth();
+    if(offset >= 0) offset = -(width * (carousel.children.length -1));
+    else offset += width;
+    carousel.style.transform = `translateX(${offset}px)`;
+  });
+
+  window.addEventListener('resize', () => { offset = 0; carousel.style.transform = `translateX(${offset}px)`; });
 });
 
-// WHATSAPP
-const whatsappBtn=document.querySelector('.whatsapp-btn');
-const whatsappMenu=document.querySelector('.whatsapp-menu');
-whatsappBtn.addEventListener('click',()=>{ whatsappMenu.style.display=whatsappMenu.style.display==='block'?'none':'block';});
-window.addEventListener('click',e=>{ if(!e.target.closest('.whatsapp-dropdown')) whatsappMenu.style.display='none';});
-
-// MENÚ MÓVIL
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
-
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-});
-
-// Cerrar menú al hacer clic en un enlace
-document.querySelectorAll('#nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('show'); // Oculta el menú
-    });
-});
-
-// Cerrar menú si se hace clic afuera
-window.addEventListener('click', e => {
-    if (!e.target.closest('.menu-mobile')) {
-        navLinks.classList.remove('show');
-    }
-});
-
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = e.target;
-    
-    fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-    }).then(response => {
-        if (response.ok) {
-            alert('¡Gracias! Tu mensaje ha sido enviado.');
-            form.reset();
-        } else {
-            alert('Ups! Hubo un error al enviar tu mensaje.');
-        }
-    }).catch(error => {
-        alert('Ups! Hubo un error al enviar tu mensaje.');
-    });
+// ================= WHATSAPP =================
+const whatsappFloat = document.querySelector('.whatsapp-float');
+const whatsappMenu = document.querySelector('.whatsapp-menu');
+whatsappFloat.addEventListener('click', () => { whatsappMenu.style.display = whatsappMenu.style.display === 'flex' ? 'none' : 'flex'; });
+document.addEventListener('click', e => {
+  if(!whatsappFloat.contains(e.target) && !whatsappMenu.contains(e.target)) whatsappMenu.style.display = 'none';
 });

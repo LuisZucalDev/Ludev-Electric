@@ -1,137 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ludev Electric - Servicios Eléctricos Profesionales</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ludev Electric - Soluciones eléctricas confiables, seguras y profesionales con más de 15 años de experiencia.">
+  <title>Ludev Electric | Servicios Eléctricos Profesionales</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <script defer src="js/main.js"></script>
 </head>
+
 <body>
-
-<header>
-    <div class="header-overlay">
-        <img src="img/logo.png" alt="Logo Ludev Electric" class="logo">
-        <h1>Ludev Electric</h1>
-        <p>Soluciones eléctricas confiables y rápidas</p>
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="logo-container">
+      <img src="img/logo.png" alt="Logo Ludev Electric" class="logo">
+      <h1>Ludev Electric</h1>
+      <p>Soluciones eléctricas confiables y seguras</p>
     </div>
-</header>
+    <button id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+    <nav aria-label="Menú principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#vision">Visión y Misión</a></li>
+        <li><a href="#porque">Por qué elegirnos</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<nav>
-    <div class="menu-mobile">
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-links" id="nav-links">
-            <a href="#services">Servicios</a>
-            <a href="#about">Quiénes Somos</a>
-            <a href="#portfolio">Proyectos</a>
-            <a href="#contact">Contacto</a>
-        </div>
-    </div>
-</nav>
+  <main>
+    <!-- ================= INICIO ================= -->
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <h2>Energía que impulsa tu mundo</h2>
+        <p>Más de 10 años brindando servicios eléctricos con excelencia, seguridad y compromiso.</p>
+        <a href="#contacto" class="btn-primary">Solicita un presupuesto</a>
+      </div>
+    </section>
 
-<main>
-<section id="services">
-    <h2>Nuestros Servicios</h2>
-    <div class="services">
-        <!-- Servicio repetido -->
-        <div class="service">
-            <div class="service-img-container">
-                <img src="img/service1.png" alt="Instalación Residencial">
-            </div>
-            <h3>Instalación Residencial</h3>
-            <p>Instalaciones eléctricas completas para tu hogar, seguras y eficientes.</p>
-        </div>
-        <div class="service">
-            <div class="service-img-container">
-                <img src="img/service2.jpeg" alt="Mantenimiento Preventivo">
-            </div>
-            <h3>Mantenimiento Preventivo</h3>
-            <p>Mantenemos tus sistemas eléctricos funcionando correctamente y sin fallas.</p>
-        </div>
-        <div class="service">
-            <div class="service-img-container">
-                <img src="img/service3.jpg" alt="Reparaciones de Cortocircuitos">
-            </div>
-            <h3>Reparaciones de Cortocircuitos</h3>
-            <p>Atención rápida y profesional ante cualquier emergencia eléctrica.</p>
-        </div>
-        <div class="service">
-            <div class="service-img-container">
-                <img src="img/service4.webp" alt="Iluminación LED">
-            </div>
-            <h3>Iluminación LED</h3>
-            <p>Instalación de iluminación LED moderna, ahorrativa y ecológica.</p>
-        </div>
-        <div class="service">
-            <div class="service-img-container">
-                <img src="img/service5.jpg" alt="Paneles Solares Domiciliarios">
-            </div>
-            <h3>Paneles Solares Domiciliarios</h3>
-            <p>Instalación de sistemas solares para viviendas, reduciendo costos de energía y apoyando el medio ambiente.</p>
-        </div>
-        <div class="service">
-            <div class="service-img-container">
-                <img src="img/service6.jpg" alt="Tableros Eléctricos">
-            </div>
-            <h3>Instalaciones y Armado de Tableros Eléctricos</h3>
-            <p>Diseño, ensamblaje e instalación de tableros eléctricos seguros y eficientes.</p>
-        </div>
-    </div>
-</section>
+    <!-- ================= SERVICIOS ================= -->
+    <section id="servicios">
+      <h2>Servicios Profesionales</h2>
+      <p>Realizamos todo tipo de instalaciones y mantenimiento eléctrico industrial, residencial y comercial.</p>
 
-<section id="about">
-    <h2>Quiénes Somos</h2>
-    <p class="about-text">
-        Ludev Electric está formado por Luis Zuñiga y Deivi Rodríguez. Nuestra misión es ofrecer soluciones eléctricas profesionales, seguras y confiables, adaptadas a las necesidades de cada cliente. Contamos con más de 10 años de experiencia en el rubro de la electricidad y nos respaldan los mejores profesionales para la ejecución de todos nuestros servicios.
-    </p>
-</section>
+      <div class="servicios-grid">
 
-<section id="portfolio">
-    <h2>Proyectos Realizados</h2>
-    <div class="project-carousel">
-        <h3>Instalación Comercial</h3>
-        <div class="carousel-container">
-            <button class="prev">&#10094;</button>
+        <!-- CARD 1: Instalaciones Eléctricas -->
+        <div class="card carousel-card">
+          <h3>Instalaciones Eléctricas</h3>
+          <div class="carousel-container">
+            <button class="prev" aria-label="Imagen anterior">&#10094;</button>
             <div class="carousel">
-                <div class="carousel-img-container"><img src="img/comercial1.jpeg" alt="Proyecto Comercial 1"></div>
-                <div class="carousel-img-container"><img src="img/comercial2.jpeg" alt="Proyecto Comercial 2"></div>
-                <div class="carousel-img-container"><img src="img/comercial3.jpeg" alt="Proyecto Comercial 3"></div>
+              <div class="carousel-img"><img src="img/comercial1.jpeg" alt="Instalación eléctrica residencial 1" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/comercial2.jpeg" alt="Instalación eléctrica residencial 2" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/comercial3.jpeg" alt="Instalación eléctrica residencial 3" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/comercial4.jpeg" alt="Instalación eléctrica residencial 4" loading="lazy"></div>
+          
+
+              
+              
             </div>
-            <button class="next">&#10095;</button>
+            <button class="next" aria-label="Siguiente imagen">&#10095;</button>
+          </div>
+          <p>Diseño e instalación de sistemas eléctricos residenciales e industriales cumpliendo con normativas SEC.</p>
         </div>
-        <p>Proyecto de iluminación y cableado para oficina corporativa.</p>
+
+        <!-- CARD 2: Mantenimiento Preventivo -->
+        <div class="card carousel-card">
+          <h3>Mantenimiento Preventivo</h3>
+          <div class="carousel-container">
+            <button class="prev" aria-label="Imagen anterior">&#10094;</button>
+            <div class="carousel">
+                <div class="carousel-img"><img src="img/mantenimiento4.jpeg" alt="Mantenimiento eléctrico 1" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/mantenimiento1.jpeg" alt="Mantenimiento eléctrico 4" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/mantenimiento2.jpeg" alt="Mantenimiento eléctrico 2" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/mantenimiento3.jpeg" alt="Mantenimiento eléctrico 3" loading="lazy"></div>
+              
+              
+
+
+           
+            </div>
+            <button class="next" aria-label="Siguiente imagen">&#10095;</button>
+          </div>
+          <p>Diagnóstico, reparación y mantención de tableros, luminarias, y sistemas eléctricos completos.</p>
+        </div>
+
+        <!-- CARD 3: Emergencias Eléctricas -->
+        <div class="card carousel-card">
+          <h3>Atención de Emergencias</h3>
+          <div class="carousel-container">
+            <button class="prev" aria-label="Imagen anterior">&#10094;</button>
+            <div class="carousel">
+              <div class="carousel-img"><img src="img/emergencias1.jpeg" alt="Emergencia eléctrica 1" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/emergencias4.jpeg" alt="Emergencia eléctrica 3" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/emergencias5.jpeg" alt="Emergencia eléctrica 4" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/emergencias0.jpeg" alt="Emergencia eléctrica 5" loading="lazy"></div>
+              <div class="carousel-img"><img src="img/emergencias2.jpeg" alt="Emergencia eléctrica 2" loading="lazy"></div>
+
+
+             
+            </div>
+            <button class="next" aria-label="Siguiente imagen">&#10095;</button>
+          </div>
+          <p>Soporte eléctrico 24/7 para empresas y hogares. Respuesta inmediata ante fallas críticas.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= VISIÓN Y MISIÓN ================= -->
+    <section id="vision">
+      <h2>Visión y Misión</h2>
+      <div class="vision-container">
+        <div class="vision-box">
+          <h3>Visión</h3>
+          <p>Ser líderes en servicios eléctricos integrales, reconocidos por la excelencia, innovación y compromiso con la seguridad.</p>
+        </div>
+        <div class="vision-box">
+          <h3>Misión</h3>
+          <p>Ofrecer soluciones eléctricas confiables que superen las expectativas de nuestros clientes, promoviendo la eficiencia y la sustentabilidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= POR QUÉ ELEGIRNOS ================= -->
+    <section id="porque">
+      <h2>¿Por qué elegirnos?</h2>
+      <div class="porque-elegirnos">
+        <div class="porque-item">✔ Experiencia comprobada</div>
+        <div class="porque-item">⚡ Compromiso con la seguridad</div>
+        <div class="porque-item">🧰 Personal certificado</div>
+        <div class="porque-item">💡 Soluciones personalizadas</div>
+      </div>
+    </section>
+
+    <!-- ================= EQUIPO ================= -->
+<section id="equipo" class="equipo-section">
+  <h2>Nuestro Equipo</h2>
+  <p>Contamos con técnicos especializados y supervisores certificados para asegurar un servicio de excelencia.</p>
+
+  <div class="equipo-grid">
+    <div class="card">
+      <div class="img-container">
+        <img src="img/Deivi.png" alt="Supervisor Eléctrico" loading="lazy">
+      </div>
+      <h3>Deivi Rodríguez</h3>
+      <p class="cargo">Supervisor Eléctrico</p>
+      <p>Área de Ejecución</p>
     </div>
+
+    <div class="card">
+      <div class="img-container">
+        <img src="img/Luis.png" alt="Ingeniero Informático y Eléctrico Clase B" loading="lazy">
+      </div>
+      <h3>Luis Zúñiga</h3>
+      <p class="cargo">Ingeniero Informático y Eléctrico Clase B</p>
+      <p>Área de Ingeniería</p>
+    </div>
+  </div>
 </section>
 
-<section id="contact">
-    <h2>Contacto</h2>
-    <form id="contactForm" action="https://formspree.io/f/manpzwgy" method="POST">
-        <input type="text" name="nombre" placeholder="Nombre" required>
-        <input type="email" name="email" placeholder="Correo Electrónico" required>
-        <input type="tel" name="telefono" placeholder="Teléfono" required>
-        <textarea name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
-        <button type="submit">Enviar Mensaje</button>
-    </form>
-</section>
 
-<div class="whatsapp-dropdown">
-    <img src="img/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-btn">
+
+    <!-- ================= CONTACTO ================= -->
+    <section id="contacto">
+      <h2>Contáctanos</h2>
+      <p>Déjanos tu mensaje y nos pondremos en contacto contigo a la brevedad.</p>
+      <form action="https://formspree.io/f/manpzwgy" method="POST">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <textarea name="mensaje" placeholder="Escribe tu mensaje..." rows="5" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>&copy; 2025 Ludev Electric. Todos los derechos reservados.</p>
+    <p>
+      <a href="mailto:luisfelipezucal@gmail.com">Correo: luisfelipezucal@gmail.com</a>
+      
+    </p>
+  </footer>
+
+  <!-- ================= BOTÓN WHATSAPP ================= -->
+  <div class="whatsapp-dropdown">
+    <a href="#" class="whatsapp-float" title="Contáctanos por WhatsApp">💬</a>
     <div class="whatsapp-menu">
-        <a href="https://wa.me/56967086692?text=Hola%20Ludev%20Electric,%20quiero%20información" target="_blank">Contacto1</a>
-        <a href="https://wa.me/56994239929?text=Hola%20Ludev%20Electric,%20quiero%20información" target="_blank">Contacto2</a>
+      <a href="https://wa.me/56967086692?text=Hola%20Ludev%20Electric,%20quisiera%20cotizar%20un%20servicio." target="_blank">Contacto1</a>
+      <a href="https://wa.me/56994239929?text=Hola%20Ludev%20Electric,%20quisiera%20cotizar%20un%20servicio." target="_blank">Contacto2</a>
     </div>
-</div>
-</main>
-
-<footer>
-    <p>&copy; 2025 Ludev Electric | Todos los derechos reservados</p>
-</footer>
-
-<script src="js/main.js"></script>
+  </div>
 </body>
 </html>
