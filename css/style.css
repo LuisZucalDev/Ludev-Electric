@@ -9,7 +9,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* COLORES */
 :root {
-  --azul-principal: #003b73;
+  --azul-principal: #0155a3;
   --azul-secundario: #007bff;
   --dorado: #ffcc00;
   --gris-claro: #f5f7fa;
@@ -31,10 +31,11 @@ nav ul li { margin: 0 18px; }
 nav ul li a { color: var(--blanco); text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
 nav ul li a:hover { color: var(--dorado); }
 #menu-toggle { position: absolute; top: 20px; right: 20px; background: transparent; color: var(--blanco); font-size: 1.8rem; border: none; cursor: pointer; display: none; }
+nav ul.show { display: flex; }
 
 /* HERO */
-.hero { background: url("../img/service3.jpg") center/cover no-repeat;; height: 80vh; display: flex; align-items: center; justify-content: center; color: var(--blanco); text-align: center; position: relative; }
-.hero::after { content: ""; position: absolute; inset: 0; background: rgba(221, 220, 220, 0.589); }
+.hero { background: url("../img//service1.jpg") center/cover no-repeat; height: 80vh; display: flex; align-items: center; justify-content: center; color: var(--blanco); text-align: center; position: relative; }
+.hero::after { content: ""; position: absolute; inset: 0; background: rgba(243, 243, 243, 0.156); }
 .hero-content { position: relative; z-index: 1; max-width: 700px; padding: 20px; }
 .hero h2 { font-family: "Montserrat", sans-serif; font-size: 2.5rem; margin-bottom: 15px; }
 .hero p { font-size: 1.1rem; margin-bottom: 25px; }
@@ -54,6 +55,7 @@ section p { text-align: center; margin-bottom: 40px; color: #444; font-size: 1.0
 .carousel { display: flex; transition: transform 0.5s ease-in-out; }
 .carousel-img { min-width: 100%; height: 200px; overflow: hidden; border-radius: 12px; }
 .carousel-img img { width: 100%; height: 100%; object-fit: cover; }
+.carousel { display: flex; transition: transform 0.5s ease; will-change: transform; }
 
 
 /* FLECHAS DEL CARRUSEL ESTILO PROFESIONAL */
@@ -127,6 +129,9 @@ footer a:hover { opacity: 0.8; }
 .whatsapp-menu { display: none; flex-direction: column; margin-top: 10px; }
 .whatsapp-menu a { background: var(--blanco); color: var(--azul-principal); padding: 10px; border-radius: 12px; margin-bottom: 8px; text-decoration: none; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
 .whatsapp-menu a:hover { background-color: var(--azul-secundario); color: var(--blanco); }
+.whatsapp-menu { 
+  transition: all 0.3s ease; 
+}
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
@@ -191,8 +196,8 @@ footer a:hover { opacity: 0.8; }
 }
 
 .img-container img {
-  width: 200%;
-  height: 150%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
 }

@@ -2,9 +2,10 @@
 const menuToggle = document.getElementById('menu-toggle');
 const nav = document.querySelector('nav ul');
 menuToggle.addEventListener('click', () => {
+  const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+  menuToggle.setAttribute('aria-expanded', !expanded);
   nav.classList.toggle('show');
 });
-
 // ================= SCROLL ANIMATION =================
 const sections = document.querySelectorAll('section');
 const observer = new IntersectionObserver(entries => {
@@ -39,13 +40,24 @@ document.querySelectorAll('.carousel-card').forEach(card => {
     carousel.style.transform = `translateX(${offset}px)`;
   });
 
-  window.addEventListener('resize', () => { offset = 0; carousel.style.transform = `translateX(${offset}px)`; });
+window.addEventListener('resize', () => {
+  const width = imgWidth();
+  carousel.style.transform = `translateX(${Math.round(offset / width) * width}px)`;
 });
 
 // ================= WHATSAPP =================
 const whatsappFloat = document.querySelector('.whatsapp-float');
 const whatsappMenu = document.querySelector('.whatsapp-menu');
-whatsappFloat.addEventListener('click', () => { whatsappMenu.style.display = whatsappMenu.style.display === 'flex' ? 'none' : 'flex'; });
-document.addEventListener('click', e => {
-  if(!whatsappFloat.contains(e.target) && !whatsappMenu.contains(e.target)) whatsappMenu.style.display = 'none';
+whatsappFloat.addEventListener('click', e => {
+  e.preventDefault();
+  whatsappMenu.style.display = whatsappMenu.style.display === 'flex' ? 'none' : 'flex';
 });
+
+// Cerrar el menú al hacer clic fuera de él
+document.addEventListener('click', e => {
+  if(!whatsappMenu.contains(e.target) && !whatsappFloat.contains(e.target)) {
+    whatsappMenu.style.display = 'none';
+  }
+});
+});
+// ================= FIN DEL CÓDIGO =================
