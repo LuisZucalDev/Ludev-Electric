@@ -5,234 +5,696 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Ludev Electric - Soluciones eléctricas confiables, seguras y profesionales con más de 15 años de experiencia.">
   <title>Ludev Electric | Servicios Eléctricos Profesionales</title>
-  <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <script defer src="js/main.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind Config & Custom Styles -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#f0f7ff',
+              100: '#e1effe',
+              200: '#c7e1fd',
+              300: '#a2d5fc',
+              400: '#74bdf9',
+              500: '#4ba3f5',
+              600: '#0155a3',
+              700: '#014687',
+              800: '#0b3975',
+              900: '#092e61',
+            },
+            accent: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'float': 'float 3s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body { scroll-behavior: smooth; }
+    .gradient-primary {
+      background: linear-gradient(135deg, #0155a3 0%, #007bff 100%);
+    }
+    .gradient-secondary {
+      background: linear-gradient(135deg, #f0f7ff 0%, #e1effe 100%);
+    }
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(1, 85, 163, 0.15);
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 20px rgba(1, 85, 163, 0.4);
+    }
+    .section-fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 
 </head>
 
-<body>
+<body class="bg-white text-gray-900 font-sans"
   <!-- ================= HEADER ================= -->
-  <header>
-    <div class="logo-container">
-      <img src="img/logo.png" alt="Logo Ludev Electric" class="logo">
-      <h1>Ludev Electric</h1>
-      <p>Soluciones eléctricas confiables y seguras</p>
-    </div>
-    <button id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-    <nav aria-label="Menú principal">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#vision">Visión y Misión</a></li>
-        <li><a href="#porque">Por qué elegirnos</a></li>
-        <li><a href="#equipo">Equipo</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+  <header class="gradient-primary fixed w-full top-0 z-50 shadow-lg">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <img src="img/logo.png" alt="Logo Ludev Electric" class="w-12 h-12 object-contain">
+          <div>
+            <h1 class="text-white font-display font-bold text-xl leading-tight">Ludev Electric</h1>
+            <p class="text-primary-100 text-xs hidden sm:block">Soluciones eléctricas profesionales</p>
+          </div>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex items-center gap-8">
+          <li><a href="#inicio" class="text-white font-medium hover:text-accent-400 transition duration-300">Inicio</a></li>
+          <li><a href="#servicios" class="text-white font-medium hover:text-accent-400 transition duration-300">Servicios</a></li>
+          <li><a href="#vision" class="text-white font-medium hover:text-accent-400 transition duration-300">Visión</a></li>
+          <li><a href="#porque" class="text-white font-medium hover:text-accent-400 transition duration-300">¿Por qué?</a></li>
+          <li><a href="#equipo" class="text-white font-medium hover:text-accent-400 transition duration-300">Equipo</a></li>
+          <li><a href="#contacto" class="text-white font-medium hover:text-accent-400 transition duration-300">Contacto</a></li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-toggle" class="md:hidden text-white text-2xl p-2" aria-label="Abrir menú" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-primary-400 pt-4">
+        <a href="#inicio" class="block text-white py-2 hover:text-accent-400 transition">Inicio</a>
+        <a href="#servicios" class="block text-white py-2 hover:text-accent-400 transition">Servicios</a>
+        <a href="#vision" class="block text-white py-2 hover:text-accent-400 transition">Visión</a>
+        <a href="#porque" class="block text-white py-2 hover:text-accent-400 transition">¿Por qué?</a>
+        <a href="#equipo" class="block text-white py-2 hover:text-accent-400 transition">Equipo</a>
+        <a href="#contacto" class="block text-white py-2 hover:text-accent-400 transition">Contacto</a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <!-- ================= INICIO ================= -->
-    <section id="inicio" class="hero">
-      <div class="hero-content">
-        <h2>Energía que impulsa tu mundo</h2>
-        <p>Más de 10 años brindando servicios eléctricos con excelencia, seguridad y compromiso.</p>
-        <a href="#contacto" class="btn-primary">Solicita un presupuesto</a>
+    <!-- ================= HERO SECTION ================= -->
+    <section id="inicio" class="pt-32 pb-20 px-4 relative overflow-hidden gradient-secondary">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <!-- Hero Content -->
+        <div class="space-y-8 animate-slide-up">
+          <div>
+            <h2 class="text-5xl md:text-6xl font-display font-bold text-primary-700 leading-tight mb-4">
+              Energía que impulsa tu <span class="text-accent-500">mundo</span>
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              Soluciones eléctricas integrales para tu hogar, empresa o industria. Más de 15 años de experiencia, profesionalismo y compromiso con la seguridad.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contacto" class="btn-glow inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-300 transition duration-300">
+              Solicitar presupuesto
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <a href="#servicios" class="inline-flex items-center justify-center px-8 py-4 border-2 border-primary-600 text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition duration-300">
+              Ver servicios
+            </a>
+          </div>
+
+          <!-- Trust badges -->
+          <div class="flex flex-wrap gap-6 pt-4">
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </div>
+              <span class="text-sm font-semibold text-gray-700">Personal certificado</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </div>
+              <span class="text-sm font-semibold text-gray-700">15+ años</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              </div>
+              <span class="text-sm font-semibold text-gray-700">Seguridad 24/7</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="relative animate-float">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 rounded-2xl blur-3xl opacity-20"></div>
+          <img src="img/service1.jpg" alt="Servicios eléctricos profesionales" class="relative rounded-2xl shadow-2xl w-full h-auto object-cover">
+        </div>
       </div>
     </section>
 
-    <!-- ================= SERVICIOS ================= -->
-    <section id="servicios">
-      <h2>Servicios Profesionales</h2>
-      <p>Realizamos todo tipo de instalaciones y mantenimiento eléctrico industrial, residencial y comercial.</p>
-
-      <div class="servicios-grid">
-
-        <!-- CARD 1: Instalaciones Eléctricas -->
-        <div class="card carousel-card">
-          <h3>Instalaciones Eléctricas</h3>
-          <div class="carousel-container">
-            <button class="prev" aria-label="Imagen anterior">&#10094;</button>
-            <div class="carousel">
-              <div class="carousel-img"><img src="img/instalacion1.jpeg" alt="Instalación eléctrica residencial 1" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion2.jpeg" alt="Instalación eléctrica residencial 2" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion3.jpeg" alt="Instalación eléctrica residencial 3" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion4.jpeg" alt="Instalación eléctrica residencial 4" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion5.jpeg" alt="Instalación eléctrica residencial 5" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion6.jpeg" alt="Instalación eléctrica residencial 6" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion7.jpeg" alt="Instalación eléctrica residencial 7" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion8.jpeg" alt="Instalación eléctrica residencial 8" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion8.jpeg" alt="Instalación eléctrica residencial 8" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion9.jpeg" alt="Instalación eléctrica residencial 9" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion10.jpeg" alt="Instalación eléctrica residencial 10" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion11.jpeg" alt="Instalación eléctrica residencial 11" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion12.jpeg" alt="Instalación eléctrica residencial 12" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion13.jpeg" alt="Instalación eléctrica residencial 13" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion14.jpeg" alt="Instalación eléctrica residencial 14" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion15.jpeg" alt="Instalación eléctrica residencial 15" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion16.jpeg" alt="Instalación eléctrica residencial 16" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion17.jpeg" alt="Instalación eléctrica residencial 17" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion18.jpeg" alt="Instalación eléctrica residencial 18" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion19.jpeg" alt="Instalación eléctrica residencial 19" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion20.jpeg" alt="Instalación eléctrica residencial 20" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion21.jpeg" alt="Instalación eléctrica residencial 21" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion22.jpeg" alt="Instalación eléctrica residencial 22" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion23.jpeg" alt="Instalación eléctrica residencial 23" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion24.jpeg" alt="Instalación eléctrica residencial 24" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion25.jpeg" alt="Instalación eléctrica residencial 25" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion26.jpeg" alt="Instalación eléctrica residencial 26" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/instalacion27.jpeg" alt="Instalación eléctrica residencial 27" loading="lazy"></div>
-
-               
-            </div>
-            <button class="next" aria-label="Siguiente imagen">&#10095;</button>
-          </div>
-          <p>Diseño e instalación de sistemas eléctricos residenciales e industriales cumpliendo con normativas SEC.</p>
+    <!-- ================= SERVICIOS SECTION ================= -->
+    <section id="servicios" class="py-20 px-4 bg-white section-fade">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16 space-y-4">
+          <span class="inline-block px-4 py-2 bg-primary-100 text-primary-600 text-sm font-semibold rounded-full">SERVICIOS</span>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900">
+            Soluciones eléctricas integrales
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Realizamos instalaciones, mantenimiento y atención de emergencias. Servicio profesional, seguro y confiable para hogares, empresas e industrias.
+          </p>
         </div>
 
-        <!-- CARD 2: Mantenimiento Preventivo -->
-        <div class="card carousel-card">
-          <h3>Mantenimiento Preventivo</h3>
-          <div class="carousel-container">
-            <button class="prev" aria-label="Imagen anterior">&#10094;</button>
-            <div class="carousel">
-                <div class="carousel-img"><img src="img/Mantencion1.jpeg" alt="Mantenimiento eléctrico 1" loading="lazy"></div>
-                <div class="carousel-img"><img src="img/Mantencion2.jpeg" alt="Mantenimiento eléctrico 2" loading="lazy"></div>
-                <div class="carousel-img"><img src="img/Mantencion3.jpeg" alt="Mantenimiento eléctrico 3" loading="lazy"></div>
-                <div class="carousel-img"><img src="img/Mantencion4.jpeg" alt="Mantenimiento eléctrico 4" loading="lazy"></div>
-                <div class="carousel-img"><img src="img/Mantencion5.jpeg" alt="Mantenimiento eléctrico 5" loading="lazy"></div>
-                <div class="carousel-img"><img src="img/Mantencion6.jpeg" alt="Mantenimiento eléctrico 6" loading="lazy"></div>
-                <div class="carousel-img"><img src="img/Mantencion7.jpeg" alt="Mantenimiento eléctrico 7" loading="lazy"></div>
-                <div class="carousel-img"><img src="img/Mantencion8.jpeg" alt="Mantenimiento eléctrico 8" loading="lazy"></div>
-                <div class="carousel-img"><img src="img/Mantencion9.jpeg" alt="Mantenimiento eléctrico 9" loading="lazy"></div>
-                <div class="carousel-img"><img src="img/Mantencion10.jpeg" alt="Mantenimiento eléctrico 10" loading="lazy"></div>
+        <!-- Services Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Service 1: Instalaciones -->
+          <div class="card card-hover group">
+            <div class="relative h-64 mb-6 rounded-xl overflow-hidden">
+              <div class="carousel-service" data-service="instalacion">
+                <div class="carousel-img-wrapper w-full h-full">
+                  <img src="img/instalacion1.jpeg" alt="Instalación eléctrica" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              <!-- Carousel Controls -->
+              <div class="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                <button class="prev-btn w-10 h-10 bg-white/90 text-primary-600 rounded-full flex items-center justify-center hover:bg-white transition" data-service="instalacion">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button class="next-btn w-10 h-10 bg-white/90 text-primary-600 rounded-full flex items-center justify-center hover:bg-white transition" data-service="instalacion">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <h3 class="text-2xl font-display font-bold text-gray-900">Instalaciones Eléctricas</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Diseño e instalación de sistemas eléctricos residenciales, comerciales e industriales, cumpliendo con todas las normativas SEC y estándares de seguridad.
+              </p>
+              <div class="flex items-center gap-2 text-primary-600 font-semibold pt-3">
+                <span>Conocer más</span>
+                <svg class="w-5 h-5 group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 2: Mantenimiento -->
+          <div class="card card-hover group">
+            <div class="relative h-64 mb-6 rounded-xl overflow-hidden">
+              <div class="carousel-service" data-service="mantencion">
+                <div class="carousel-img-wrapper w-full h-full">
+                  <img src="img/Mantencion1.jpeg" alt="Mantenimiento eléctrico" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              <!-- Carousel Controls -->
+              <div class="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                <button class="prev-btn w-10 h-10 bg-white/90 text-primary-600 rounded-full flex items-center justify-center hover:bg-white transition" data-service="mantencion">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button class="next-btn w-10 h-10 bg-white/90 text-primary-600 rounded-full flex items-center justify-center hover:bg-white transition" data-service="mantencion">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <h3 class="text-2xl font-display font-bold text-gray-900">Mantenimiento Preventivo</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Diagnóstico, reparación e inspección de sistemas eléctricos. Mantenimiento preventivo para asegurar funcionamiento óptimo y evitar fallas inesperadas.
+              </p>
+              <div class="flex items-center gap-2 text-primary-600 font-semibold pt-3">
+                <span>Conocer más</span>
+                <svg class="w-5 h-5 group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 3: Emergencias -->
+          <div class="card card-hover group">
+            <div class="relative h-64 mb-6 rounded-xl overflow-hidden">
+              <div class="carousel-service" data-service="emergencia">
+                <div class="carousel-img-wrapper w-full h-full">
+                  <img src="img/Emergencia1.jpeg" alt="Emergencia eléctrica" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              <!-- Carousel Controls -->
+              <div class="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                <button class="prev-btn w-10 h-10 bg-white/90 text-primary-600 rounded-full flex items-center justify-center hover:bg-white transition" data-service="emergencia">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button class="next-btn w-10 h-10 bg-white/90 text-primary-600 rounded-full flex items-center justify-center hover:bg-white transition" data-service="emergencia">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <h3 class="text-2xl font-display font-bold text-gray-900">Atención de Emergencias</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Soporte eléctrico disponible 24/7 para empresas y hogares. Respuesta rápida e inmediata ante fallas, apagones y situaciones críticas.
+              </p>
+              <div class="flex items-center gap-2 text-primary-600 font-semibold pt-3">
+                <span>Conocer más</span>
+                <svg class="w-5 h-5 group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VISION & MISSION SECTION ================= -->
+    <section id="vision" class="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100 section-fade">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16 space-y-4">
+          <span class="inline-block px-4 py-2 bg-primary-100 text-primary-600 text-sm font-semibold rounded-full">QUIÉNES SOMOS</span>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900">
+            Visión y Misión
+          </h2>
+        </div>
+
+        <!-- Vision & Mission Grid -->
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Vision Card -->
+          <div class="group">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition"></div>
+              <div class="relative bg-white rounded-2xl p-8 border-2 border-transparent hover:border-primary-500 transition duration-300 card-hover">
+                <div class="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">Visión</h3>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                  Ser líderes reconocidos en soluciones eléctricas integrales, caracterizados por nuestra excelencia operativa, compromiso con la innovación y dedicación inquebrantable a la seguridad de nuestros clientes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mission Card -->
+          <div class="group">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-accent-500 to-yellow-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition"></div>
+              <div class="relative bg-white rounded-2xl p-8 border-2 border-transparent hover:border-accent-500 transition duration-300 card-hover">
+                <div class="w-16 h-16 bg-accent-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg class="w-8 h-8 text-accent-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">Misión</h3>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                  Ofrecer soluciones eléctricas confiables y personalizadas que superen las expectativas de nuestros clientes, promoviendo la eficiencia energética, la sustentabilidad y el bienestar a través de servicios profesionales de excelencia.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHY CHOOSE US SECTION ================= -->
+    <section id="porque" class="py-20 px-4 bg-white section-fade">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16 space-y-4">
+          <span class="inline-block px-4 py-2 bg-primary-100 text-primary-600 text-sm font-semibold rounded-full">VENTAJAS</span>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900">
+            ¿Por qué elegirnos?
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Contamos con experiencia comprobada, profesionalismo certificado y compromiso total con tu satisfacción y seguridad.
+          </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Feature 1 -->
+          <div class="group p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 hover:from-primary-50 hover:to-primary-100 border border-gray-200 hover:border-primary-300 transition duration-300">
+            <div class="w-12 h-12 bg-primary-500 text-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition transform">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Experiencia comprobada</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Más de 15 años en el mercado brindando servicios de calidad con excelentes referencias.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="group p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 hover:from-yellow-50 hover:to-yellow-100 border border-gray-200 hover:border-accent-300 transition duration-300">
+            <div class="w-12 h-12 bg-accent-500 text-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition transform">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Seguridad 24/7</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Compromiso absoluto con la seguridad en todas nuestras operaciones y atEnciones.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="group p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 hover:from-blue-50 hover:to-blue-100 border border-gray-200 hover:border-blue-300 transition duration-300">
+            <div class="w-12 h-12 bg-blue-500 text-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition transform">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Personal certificado</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Técnicos especializados y certificados en electricidad con formación continua.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="group p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 hover:from-purple-50 hover:to-purple-100 border border-gray-200 hover:border-purple-300 transition duration-300">
+            <div class="w-12 h-12 bg-purple-500 text-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition transform">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Soluciones personalizadas</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Diseñamos cada solución según tus necesidades específicas y presupuesto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TEAM SECTION ================= -->
+    <section id="equipo" class="py-20 px-4 gradient-secondary section-fade">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16 space-y-4">
+          <span class="inline-block px-4 py-2 bg-primary-100 text-primary-600 text-sm font-semibold rounded-full">NUESTRO EQUIPO</span>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900">
+            Profesionales especializados
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Contamos con técnicos y supervisores certificados con amplia experiencia para garantizar un servicio de excelencia.
+          </p>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="flex justify-center max-w-md mx-auto">
+          <!-- Team Member 1 -->
+          <div class="group w-full">
+            <div class="relative mb-6 overflow-hidden rounded-2xl">
+              <div class="aspect-square overflow-hidden">
+                <img src="img/Deivi.png" alt="Deivi Rodríguez - Supervisor Eléctrico" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+            </div>
+            <div class="text-center">
+              <h3 class="text-xl font-display font-bold text-gray-900 mb-1">Deivi Rodríguez</h3>
+              <p class="text-primary-600 font-semibold mb-2">Supervisor Eléctrico</p>
+              <p class="text-gray-600 text-sm mb-4">Especialista en ejecución de proyectos</p>
               
-              
-                        
             </div>
-            <button class="next" aria-label="Siguiente imagen">&#10095;</button>
           </div>
-          <p>Diagnóstico, reparación y mantención de tableros, luminarias, y sistemas eléctricos completos.</p>
-        </div>
 
-        <!-- CARD 3: Emergencias Eléctricas -->
-        <div class="card carousel-card">
-          <h3>Atención de Emergencias</h3>
-          <div class="carousel-container">
-            <button class="prev" aria-label="Imagen anterior">&#10094;</button>
-            <div class="carousel">
-              <div class="carousel-img"><img src="img/Emergencia1.jpeg" alt="Emergencia eléctrica 1" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia2.jpeg" alt="Emergencia eléctrica 2" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia3.jpeg" alt="Emergencia eléctrica 3" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia4.jpeg" alt="Emergencia eléctrica 4" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia5.jpeg" alt="Emergencia eléctrica 5" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia6.jpeg" alt="Emergencia eléctrica 6" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia7.jpeg" alt="Emergencia eléctrica 7" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia8.jpeg" alt="Emergencia eléctrica 8" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia9.jpeg" alt="Emergencia eléctrica 9" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia10.jpeg" alt="Emergencia eléctrica 10" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia11.jpeg" alt="Emergencia eléctrica 11" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia12.jpeg" alt="Emergencia eléctrica 12" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia13.jpeg" alt="Emergencia eléctrica 13" loading="lazy"></div>
-              <div class="carousel-img"><img src="img/Emergencia14.jpeg" alt="Emergencia eléctrica 14" loading="lazy"></div>
-
-             
-            </div>
-            <button class="next" aria-label="Siguiente imagen">&#10095;</button>
-          </div>
-          <p>Soporte eléctrico 24/7 para empresas y hogares. Respuesta inmediata ante fallas críticas.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= VISIÓN Y MISIÓN ================= -->
-    <section id="vision">
-      <h2>Visión y Misión</h2>
-      <div class="vision-container">
-        <div class="vision-box">
-          <h3>Visión</h3>
-          <p1>Ser líderes en servicios eléctricos integrales, reconocidos por la excelencia, innovación y compromiso con la seguridad.</p1>
-        </div>
-        <div class="vision-box">
-          <h3>Misión</h3>
-          <p1>Ofrecer soluciones eléctricas confiables que superen las expectativas de nuestros clientes, promoviendo la eficiencia y la sustentabilidad.</p1>
+          <!-- Team Member 2 - ELIMINADO -->
         </div>
       </div>
     </section>
-
-    <!-- ================= POR QUÉ ELEGIRNOS ================= -->
-    <section id="porque">
-      <h2>¿Por qué elegirnos?</h2>
-      <div class="porque-elegirnos">
-        <div class="porque-item">✔ Experiencia comprobada</div>
-        <div class="porque-item">⚡ Compromiso con la seguridad</div>
-        <div class="porque-item">🧰 Personal certificado</div>
-        <div class="porque-item">💡 Soluciones personalizadas</div>
-      </div>
-    </section>
-
-    <!-- ================= EQUIPO ================= -->
-<section id="equipo" class="equipo-section">
-  <h2>Nuestro Equipo</h2>
-  <p>Contamos con técnicos especializados y supervisores certificados para asegurar un servicio de excelencia.</p>
-
-  <div class="equipo-grid">
-    <div class="card">
-      <div class="img-container">
-        <img src="img/Deivi.png" alt="Supervisor Eléctrico" loading="lazy">
-      </div>
-      <h3>Deivi Rodríguez</h3>
-      <p class="cargo">Supervisor Eléctrico</p>
-      <p>Área de Ejecución</p>
-    </div>
-
-    <div class="card">
-      <div class="img-container">
-        <img src="img/Luis.png" alt="Ingeniero Informático y Eléctrico Clase B" loading="lazy">
-      </div>
-      <h3>Luis Zúñiga</h3>
-      <p class="cargo">Ingeniero Informático y Eléctrico Clase B</p>
-      <p>Área de Ingeniería</p>
-    </div>
-  </div>
 </section>
 
 
 
-    <!-- ================= CONTACTO ================= -->
-    <section id="contacto">
-      <h2>Contáctanos</h2>
-      <p>Déjanos tu mensaje y nos pondremos en contacto contigo a la brevedad.</p>
-      <form action="https://formspree.io/f/manpzwgy" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu correo" required>
-        <textarea name="mensaje" placeholder="Escribe tu mensaje..." rows="5" required></textarea>
-        <button type="submit">Enviar mensaje</button>
-      </form>
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contacto" class="py-20 px-4 bg-gradient-to-br from-primary-50 to-primary-100 section-fade">
+      <div class="max-w-4xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16 space-y-4">
+          <span class="inline-block px-4 py-2 bg-white text-primary-600 text-sm font-semibold rounded-full">CONTACTO</span>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-primary-900">
+            Déjanos tu consulta
+          </h2>
+          <p class="text-lg text-primary-700 max-w-2xl mx-auto">
+            Nos pondremos en contacto a la brevedad para resolver tus dudas y brindarte el mejor servicio eléctrico.
+          </p>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <form action="https://formspree.io/f/manpzwgy" method="POST" class="space-y-6">
+            <!-- Name Input -->
+            <div>
+              <label for="nombre" class="block text-sm font-semibold text-gray-900 mb-2">Tu nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" required 
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition duration-300">
+            </div>
+
+            <!-- Email Input -->
+            <div>
+              <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="tu@correo.com" required 
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition duration-300">
+            </div>
+
+            <!-- Phone Input (optional) -->
+            <div>
+              <label for="telefono" class="block text-sm font-semibold text-gray-900 mb-2">Teléfono (opcional)</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX" 
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition duration-300">
+            </div>
+
+            <!-- Service Select (optional) -->
+            <div>
+              <label for="servicio" class="block text-sm font-semibold text-gray-900 mb-2">Servicio de interés (opcional)</label>
+              <select id="servicio" name="servicio" 
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition duration-300">
+                <option value="">Selecciona un servicio</option>
+                <option value="instalaciones">Instalaciones Eléctricas</option>
+                <option value="mantenimiento">Mantenimiento Preventivo</option>
+                <option value="emergencias">Atención de Emergencias</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <!-- Message Textarea -->
+            <div>
+              <label for="mensaje" class="block text-sm font-semibold text-gray-900 mb-2">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos qué necesitas..." required 
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition duration-300 resize-none"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold text-lg rounded-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-300 active:transform active:scale-100">
+              Enviar mensaje
+            </button>
+
+            <p class="text-center text-sm text-gray-600 mt-4">
+              También puedes contactarnos directamente por WhatsApp haciendo clic en el botón flotante.
+            </p>
+          </form>
+        </div>
+
+        <!-- Quick Contact Info -->
+        <div class="grid md:grid-cols-3 gap-6 mt-16 pt-12 border-t border-primary-200">
+          <!-- Email -->
+          <div class="text-center group">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition duration-300">
+              <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-primary-900 mb-2 text-lg">Correo</h3>
+            <a href="mailto:contacto@ludevelectric.cl" class="text-primary-700 hover:text-primary-900 font-medium transition inline-block">contacto@ludevelectric.cl</a>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="text-center group">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition duration-300">
+              <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-primary-900 mb-2 text-lg">Teléfono</h3>
+            <a href="tel:+56994239929" class="text-primary-700 hover:text-primary-900 font-medium transition inline-block">+56 9 94239929</a>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="text-center group">
+            <div class="w-16 h-16 bg-[#25d366] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition duration-300">
+              <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l6.05-1.79C9.5 21.13 10.74 21.5 12 21.5c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.41 0-2.73-.36-3.88-.98l-.28-.15-2.89.85.9-2.83-.18-.29C4.5 14.93 4.2 13.5 4.2 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"></path>
+                <path d="M16.65 12.52c-.23-.12-1.36-.67-1.57-.75-.21-.07-.37-.11-.52.11-.15.23-.59.75-.72.9-.13.15-.27.17-.5.05-1.02-.51-2.13-1.48-2.94-2.84-.22-.38.22-.36.7-1.19.09-.16.05-.3-.02-.42-.07-.12-.52-1.25-.72-1.71-.19-.42-.38-.36-.52-.37h-.44c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05 0 1.21.89 2.38 1.01 2.54.13.16 1.82 2.78 4.4 3.9.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.08 1.54-.63 1.76-1.23.22-.61.22-1.13.15-1.24-.07-.11-.23-.17-.48-.3z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-primary-900 mb-2 text-lg">WhatsApp</h3>
+            <a href="https://wa.me/56967086692" class="text-primary-700 hover:text-primary-900 font-medium transition inline-block">Chatear ahora</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <!-- ================= FOOTER ================= -->
-  <footer>
-    <p>&copy; 2025 Ludev Electric. Todos los derechos reservados.</p>
-    <p>
-      <a href="mailto:contacto@ludevelectric.cl">Correo: contacto@ludevelectric.cl</a>
-      
-    </p>
+  <footer class="gradient-primary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="img/logo.png" alt="Logo Ludev Electric" class="w-10 h-10">
+            <h3 class="text-white font-display font-bold text-lg">Ludev Electric</h3>
+          </div>
+          <p class="text-primary-100 text-sm leading-relaxed">
+            Soluciones eléctricas profesionales con más de 15 años de experiencia en el mercado.
+          </p>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Servicios</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#servicios" class="text-primary-100 hover:text-white transition">Instalaciones</a></li>
+            <li><a href="#servicios" class="text-primary-100 hover:text-white transition">Mantenimiento</a></li>
+            <li><a href="#servicios" class="text-primary-100 hover:text-white transition">Emergencias 24/7</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Empresa</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#inicio" class="text-primary-100 hover:text-white transition">Inicio</a></li>
+            <li><a href="#vision" class="text-primary-100 hover:text-white transition">Visión y Misión</a></li>
+            <li><a href="#equipo" class="text-primary-100 hover:text-white transition">Equipo</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contacto</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="mailto:contacto@ludevelectric.cl" class="text-primary-100 hover:text-white transition flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+                Correo
+              </a>
+            </li>
+            <li>
+              <a href="tel:+56967086692" class="text-primary-100 hover:text-white transition flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+                Teléfono
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Footer -->
+      <div class="border-t border-primary-400 pt-8">
+        <div class="flex flex-col items-center justify-center gap-4">
+          <p class="text-primary-100 text-sm text-center">
+            &copy; 2025 Ludev Electric. Todos los derechos reservados.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="text-primary-100 hover:text-white transition" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+            </a>
+              <a href="#" class="text-primary-100 hover:text-white transition" aria-label="TikTok">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M16.5 3c.3 1.7 1.7 3 3.5 3v3c-1.6 0-3.1-.5-4.3-1.3v6.3c0 3.2-2.6 5.8-5.8 5.8S4 17.2 4 14s2.6-5.8 5.8-5.8c.4 0 .8 0 1.2.1v3.1c-.4-.2-.8-.3-1.2-.3-1.5 0-2.8 1.2-2.8 2.8s1.2 2.8 2.8 2.8 2.8-1.2 2.8-2.8V3h3.9z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- ================= BOTÓN WHATSAPP ================= -->
-  <div class="whatsapp-dropdown">
-    <a href="#" class="whatsapp-float" title="Contáctanos por WhatsApp">💬</a>
-    <div class="whatsapp-menu">
-      
+  <!-- ================= WHATSAPP FLOATING BUTTON ================= -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <!-- Floating Button -->
+    <button id="whatsapp-float" class="group w-16 h-16 bg-[#25d366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#25d366]/30" title="Contáctanos por WhatsApp" aria-label="Abrir menú WhatsApp">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l6.05-1.79C9.5 21.13 10.74 21.5 12 21.5c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.41 0-2.73-.36-3.88-.98l-.28-.15-2.89.85.9-2.83-.18-.29C4.5 14.93 4.2 13.5 4.2 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"></path>
+        <path d="M16.65 12.52c-.23-.12-1.36-.67-1.57-.75-.21-.07-.37-.11-.52.11-.15.23-.59.75-.72.9-.13.15-.27.17-.5.05-1.02-.51-2.13-1.48-2.94-2.84-.22-.38.22-.36.7-1.19.09-.16.05-.3-.02-.42-.07-.12-.52-1.25-.72-1.71-.19-.42-.38-.36-.52-.37h-.44c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05 0 1.21.89 2.38 1.01 2.54.13.16 1.82 2.78 4.4 3.9.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.08 1.54-.63 1.76-1.23.22-.61.22-1.13.15-1.24-.07-.11-.23-.17-.48-.3z"></path>
+      </svg>
+    </button>
 
-      <a href="https://wa.me/56967086692?text=Hola%20Ludev%20Electric,%20quisiera%20cotizar%20un%20servicio." target="_blank" rel="noopener noreferrer">Contacto1</a>
-      <a href="https://wa.me/56994239929?text=Hola%20Ludev%20Electric,%20quisiera%20cotizar%20un%20servicio." target="_blank" rel="noopener noreferrer">Contacto2</a>
+    <!-- Menu Container -->
+    <div id="whatsapp-menu" class="hidden absolute bottom-20 right-0 bg-white rounded-2xl shadow-2xl p-4 w-72 opacity-0 transform scale-95 transition-all duration-300 pointer-events-none">
+      <div class="mb-4">
+        <p class="font-semibold text-gray-900 text-sm mb-3">Contacta con nosotros:</p>
+        <a href="https://wa.me/56994239929?text=Hola%20Ludev%20Electric,%20quisiera%20cotizar%20un%20servicio." target="_blank" rel="noopener noreferrer" class="block w-full p-3 bg-gradient-to-r from-primary-50 to-primary-100 hover:from-primary-100 hover:to-primary-200 text-primary-900 font-semibold rounded-lg transition text-center text-sm border border-primary-200">
+          📱 Deivi Rodríguez
+          <span class="text-xs text-primary-700">+56 9 94239929</span>
+        </a>
+      </div>
+      <p class="text-xs text-gray-500 text-center">Responderemos en el menor tiempo posible 🚀</p>
     </div>
   </div>
+
+  <script defer src="js/main.js"></script>
 </body>
 </html>
