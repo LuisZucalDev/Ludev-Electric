@@ -145,7 +145,7 @@ Testear con:
 ### Contacto
 - **Email**: contacto@ludevelectric.cl
 - **WhatsApp Deivi**: +56 9 94239929
-- **WhatsApp Luis**: +56 9 9423 9929
+
 
 ### Redes Sociales
 Los botones están en el footer (agregar URLs en):
@@ -261,7 +261,7 @@ Los botones están en el footer (agregar URLs en):
 
 Para preguntas o problemas:
 1. Revisar esta documentación
-2. Contactar a Luis o Deivi por WhatsApp
+2. Contactar Deivi por WhatsApp
 3. Email: contacto@ludevelectric.cl
 
 ---
@@ -274,7 +274,7 @@ Este proyecto es propiedad de **Ludev Electric**. Todos los derechos reservados 
 
 ## 🙏 Créditos
 
-- **Diseño y Desarrollo**: Luis Zúñiga (Ingeniero Eléctrico)
+- **Diseño y Desarrollo**: Luis Zúñiga (Ingeniero Informatico)
 - **Refactorización**: GitHub Copilot (Claude Haiku 4.5)
 - **Framework CSS**: Tailwind CSS
 - **Tipografía**: Google Fonts
